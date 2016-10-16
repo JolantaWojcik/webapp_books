@@ -19,11 +19,12 @@ public class RemoveBook extends HttpServlet {
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int number = Integer.parseInt(request.getParameter("number"));
+		//int number = Integer.parseInt(request.getParameter("number"));
+		String title = request.getParameter("title");
 		ArrayList<Book> books = (ArrayList<Book>) request.getSession().getAttribute("list_of_books");
-		books.remove(number);
+		books.remove(title);
 		request.getSession().setAttribute("list_of_books", books);
 
-		response.sendRedirect("index.html");
+		response.sendRedirect("table.jsp");
 	}
 }
